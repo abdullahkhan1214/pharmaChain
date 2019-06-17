@@ -1,0 +1,17 @@
+<% include ./partials/header.ejs %>
+    <div class="ui container main segment"> 
+        <%medicines.forEach(function(medicine){%>
+            <div> 
+                <h2><b><%=medicine.medicineName%></b> (<%=medicine.medicineID%>)</h2>
+                <ul>
+                    <li>Manufacture Date:<%=medicine.manufactureDate%></li>
+                    <li>ExpiryDate:<%=medicine.expiryDate%></li>
+                    <li>Manufacturer:<%=medicine.manufacturer%></li>
+                    <li>Owner:<%=medicine.owner%></li>
+                    
+                </ul>  
+            </div><br>
+            <a href="/medicines/<%= medicine._id %>/edit" class="btn btn-lg btn-primary btn-block">UPDATE </a>
+        <% }) %>
+    </div>    
+<% include ./partials/footer.ejs %>

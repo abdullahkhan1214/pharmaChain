@@ -1,0 +1,21 @@
+<% include ./partials/header.ejs %>
+    <div class="ui container main segment"> 
+        <%contracts.forEach(function(contract){%>
+            <div> 
+                <h2>contract ID:<%=contract.contractID%> </h2>
+                <ul>
+                    <li>Status:<%=contract.status%></li>
+                    <li>Completion Status:<%=contract.completionStatus%></li>
+                    <li>Seller:<%=contract.seller%></li>
+                    <li>Buyer:<%=contract.buyer%></li>
+                    <li>Medicine IDs:<%=contract.medicinesID%></li>
+                    <li>Quantity:<%=contract.quantity%></li>
+               
+                    
+                </ul> 
+                
+            </div><br>
+            <a href="/contracts/<%= contract._id %>/edit" class="btn btn-lg btn-primary btn-block">UPDATE </a>
+        <% }) %>
+    </div>    
+<% include ./partials/footer.ejs %>

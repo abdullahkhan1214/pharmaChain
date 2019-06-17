@@ -1,0 +1,26 @@
+<% include ./partials/header.ejs %>
+    <div class="ui container main segment"> 
+        <%boxes.forEach(function(box){%>
+            <div> 
+                <h2>Box (Shipment ID):<%=box.shipmentID%> </h2>
+                <ul>
+                    <li>Shipment ID:<%=box.shipmentID%></li>
+                    <li>Tracking Code:<%=box.trackingCode%></li>
+                    <li>Origin Address:<%=box.originAddress%></li>
+                    <li>Destination Address:<%=box.destinationAddress%></li>
+                    <li>Current Address:<%=box.currentAddress%></li>
+                    <li>Status:<%=box.status%></li>
+                    <li>Parent Contract:<%=box.parentContract%></li>
+                    <li>Previous Box ID:<%=box.previousBoxID%></li>
+                    <li>Buyer:<%=box.buyer%></li>
+                    <li>Medicine Contained:<%=box.medicinesContained%></li>
+                    <li>Quantity Provided:<%=box.quantityProvided%></li>
+               
+                    
+                </ul> 
+                
+            </div><br>
+            <a href="/boxes/<%= box._id %>/edit" class="btn btn-lg btn-primary btn-block">UPDATE </a>
+        <% }) %>
+    </div>    
+<% include ./partials/footer.ejs %>

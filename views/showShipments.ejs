@@ -1,0 +1,25 @@
+<% include ./partials/header.ejs %>
+    <div class="ui container main segment"> 
+        <%shipments.forEach(function(shipment){%>
+            <div> 
+                <h2>Shipment ID:<%=shipment.shipmentID%> </h2>
+                <ul>
+                    <li>Shipment ID:<%=shipment.shipmentID%></li>
+                    <li>Box Contained(IDs):<%=shipment.boxIDArray%></li>
+                    <li>Route Name:<%=shipment.routeName%></li>
+                    <li>Reached Destination Status :<%=shipment.reachedDestination%></li>
+                    <li>Owner:<%=shipment.owner%></li>
+                    
+                </ul> 
+                
+            </div><br>
+            <%if(shipment.reachedDestination.toUpperCase()==="TRUE"){%>
+            <a href="/shipments/<%= shipment._id%>/delete" class="btn btn-lg btn-primary btn-block">Delete Shipment </a>
+           
+            <% } else{%>
+             <a href="/shipments/<%= shipment._id %>/updateStatus" class="btn btn-lg btn-primary btn-block">Update Status To True </a>
+            
+            <% };%>
+        <% }) %>
+    </div>    
+<% include ./partials/footer.ejs %>
